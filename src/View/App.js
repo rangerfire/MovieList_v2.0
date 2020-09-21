@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Styles/App.css';
 import SideNav from "./sideNav";
+import HomePage from "./homePage";
 function App() {
   const [page, setPage] = React.useState(0);
   const handleClick = React.useCallback((v) => {
