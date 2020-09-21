@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/sideNav.css";
 
-export default function navBar({ onPageChange }) {
+export default function({ onPageChange }) {
   return (
     <div className="side-nav">
       <div className={"link"} onClick={onPageChange.bind(this, 0)}>
