@@ -5,16 +5,16 @@ const imgSize = 'w300';
 
 const ShowLikedMovie = (props) => {
     const movieData = props.movieData;
-    console.log(movieData);
+    // console.log(movieData);
 
     const imgUrl = ''.concat(imgBaseUrl, imgSize, movieData.poster_path);
     return (
         <div className="singleLikedMovie">
             <img src={imgUrl} alt={movieData.id} />
             <div className="operator">
-                <img src="./delete_icon.png" alt="delete icon"/>
-                <img src="./block_icon.png" alt="block icon"/>
-                <img src="./ellipsis_icon.png" alt="ellipsis icon"/>
+                <img src="./img/delete_icon.png" alt="delete icon"/>
+                <img src="./img/block_icon.png" alt="block icon"/>
+                <img src="./img/ellipsis_icon.png" alt="ellipsis icon"/>
             </div>
         </div>
     );
