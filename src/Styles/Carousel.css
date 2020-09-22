@@ -6,7 +6,8 @@
     left: 50%;
     margin-top: 20%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    position:relative;
 }
 
 .d-block w-100{
