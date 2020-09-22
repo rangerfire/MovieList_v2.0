@@ -1,0 +1,31 @@
+.ShowLikedMovie {
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.singleLikedMovie {
+    /* border: 1px solid green; */
+    margin: 1vw;
+    flex-basis: 10vw;
+    /* box-shadow: 10px 10px 10px gray; */
+}
+
+.ShowLikedMovie > img {
+    width: 10vw;
+    height: 20vw;
+    
+}
+
+.operator {
+    /* background-color: aqua; */
+    /* width: 1vw; */
+    height: 5vh;
+}
+
+.operator img {
+    margin: 0 1vw;
+    width: 2vw;
+    height: 2vw;
+}
