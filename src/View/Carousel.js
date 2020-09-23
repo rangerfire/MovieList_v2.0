@@ -24,8 +24,8 @@ const Caro = () =>{
         .then(res=>res.slice(18))
         .then(res => setPlanets(res))
     }
-    const test1 =''.concat(imgurl, planets[0]!=undefined && planets[0].poster_path)
-    const test2 =''.concat(imgurl, planets[1]!=undefined && planets[1].poster_path)
+    const test1 =''.concat(imgurl, planets[0]!==undefined && planets[0].poster_path)
+    const test2 =''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)
     useEffect(() => {
       fetchData();
     });
@@ -37,12 +37,11 @@ const Caro = () =>{
         <Carousel.Item>
           <img
             className="d-block w-100"
-            img
             src={test1}
-            alt={planets[0]!=undefined&&planets[0].title}
+            alt="first slide"
           />
           <Carousel.Caption>
-            <h3>{planets[0]!=undefined&&planets[0].title}</h3>
+            <h3>{planets[0]!==undefined&&planets[0].title}</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -53,7 +52,7 @@ const Caro = () =>{
           />
   
           <Carousel.Caption>
-            <h3>{planets[1]!=undefined&&planets[1].title}</h3>
+            <h3>{planets[1]!==undefined&&planets[1].title}</h3>
 
           </Carousel.Caption>
         </Carousel.Item>
