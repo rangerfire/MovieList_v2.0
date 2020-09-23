@@ -10,6 +10,7 @@ const initialState = {
 
 const reducer = (state=initialState, action={}) => {
     switch (action.type) {
+        
         case Actions.ADD_ONE_LIKED_MOVIE:   
             const newMovieData = action.movieData;
             const newLikedMovies1 = state.LikedMovies.slice();
@@ -26,6 +27,24 @@ const reducer = (state=initialState, action={}) => {
                 ...state,
                 LikedMovies: newLikedMovies1
             };
+
+        case Actions.ADD_ONE_BLOCKED_MOVIE: 
+            const newMovieData2 = action.movieData;
+            const newBlockedMovies1 = state.BlockedMovies.slice();
+            //check if this movie already exists
+            const finder2 = (finditem) => {
+                return finditem.id === newMovieData2.id;
+            };
+            const index2 = newBlockedMovies1.findIndex(finder2);  //find >=0, not find <0
+            if(index2 >= 0)
+                return {...state};
+            else
+                newBlockedMovies1.push(newMovieData2);
+            return {
+                ...state,
+                BlockedMovies: newBlockedMovies1
+            };    
+
         /*
 
           put your actions handler here
