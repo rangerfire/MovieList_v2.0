@@ -8,10 +8,8 @@ const JacksonApiKey = '9d3badb0c8d83a0bce6bf3cf96e3cc60';
 const lang = '&language=en-US';
 const page = '&page=1';
 const url = ''.concat(pageBaseURL,action,JacksonApiKey,lang,page);
-console.log(url)
 const imgBaseUrl = 'https://image.tmdb.org/t/p/'
-const imgSize = 'w300'
-
+const imgSize = 'w500'
 const imgurl =''.concat(imgBaseUrl,imgSize);
 
 const Caro = () =>{
@@ -23,40 +21,39 @@ const Caro = () =>{
     async function fetchData() {
       const res=axios.get(url)
         .then(res => res.data.results)
-        .then(res=>res.slice(19))
+        .then(res=>res.slice(18))
         .then(res => setPlanets(res))
     }
-    console.log(planets[0])
-    //console.log(planets[0].poster_path)
+    const test1 =''.concat(imgurl, planets[0]!=undefined && planets[0].poster_path)
+    const test2 =''.concat(imgurl, planets[1]!=undefined && planets[1].poster_path)
     useEffect(() => {
       fetchData();
     });
 
     return (
       <React.Fragment>
-      <div>{JSON.stringify(planets)}</div>
       <div></div>
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <img
             className="d-block w-100"
             img
-            src="./logo512.png"
-            alt="First slide"
+            src={test1}
+            alt={planets[0]!=undefined&&planets[0].title}
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
+            <h3>{planets[0]!=undefined&&planets[0].title}</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="./logo512.png"
+            src={test2}
             alt="Second slide"
           />
   
           <Carousel.Caption>
-            <h3>Second slide label</h3>
+            <h3>{planets[1]!=undefined&&planets[1].title}</h3>
 
           </Carousel.Caption>
         </Carousel.Item>
