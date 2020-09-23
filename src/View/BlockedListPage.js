@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import axios from 'axios';
 import ShowBlockedMovie from './ShowBlockedMovie';
-import '../Styles/BlockedListPage.css'
 //redux
 import { connect } from 'react-redux';
 import Selector from '../Selector';

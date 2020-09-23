@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import axios from 'axios';
 import ShowLikedMovie from './ShowLikedMovie';
-import '../Styles/LikedListPage.css'
 //redux
 import { connect } from 'react-redux';
 import Selector from '../Selector';

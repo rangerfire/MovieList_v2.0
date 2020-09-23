@@ -1,9 +1,11 @@
 import React from 'react';
 import '../Styles/App.css';
+import '../Styles/Liked_Blocked_Page.css'
 import SideNav from "./sideNav";
 import HomePage from "./homePage";
 import LikedListPage from './LikedListPage';
 import BlockedListPage from './BlockedListPage';
+
 
 function App() {
   const [page, setPage] = React.useState(0);
