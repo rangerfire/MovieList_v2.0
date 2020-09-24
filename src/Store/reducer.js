@@ -2,7 +2,8 @@ import Actions from '../Constants'
 
 const initialState = {
     LikedMovies: [],
-    BlockedMovies: []
+    BlockedMovies: [],
+    movieList: []
     /*
         put your states here
     */
@@ -78,6 +79,41 @@ const reducer = (state=initialState, action={}) => {
                 ...state,
                 BlockedMovies: newBlockedMovies2
             };
+
+        case Actions.ADD_ONE_MOVIE:   
+            const newMovieData5 = action.movieData;
+            const newListedMovie1 = state.movieList.slice();
+            //check if this movie already exists
+            const finder5 = (finditem) => {
+                return finditem.id === newMovieData5.id;
+            };
+            const index5 = newListedMovie1.findIndex(finder5);  //find >=0, not find <0
+            if(index5 >= 0)
+                return {...state};
+            else
+                newListedMovie1.push(newMovieData5);
+            return {
+                ...state,
+                movieList: newListedMovie1
+            };
+
+        case Actions.DELETE_ONE_LISTED_MOVIE:
+            const newMovieData6 = action.movieData;
+            const newListedMovie2 = state.movieList.slice();
+            //find the index of the movie you want to delete from listed movies
+            const finder6 = (finditem) => {
+                return finditem.id === newMovieData6.id;
+            };
+            const index6 = newListedMovie2.findIndex(finder6);
+            if(index6 >= 0)
+                newListedMovie2.splice(index6, 1);
+            else
+                alert("no this movie");
+            return {
+                ...state,
+                movieList: newListedMovie2
+            };
+
         /*
 
           put your actions handler here

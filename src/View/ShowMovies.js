@@ -13,12 +13,21 @@ const ShowMovies = (props) => {
     const release_date = ''.concat(movieData.release_date);
     const overview = ''.concat(movieData.overview);
 
+    const handleLike = () => {
+        props.addOneLikedMovie(movieData);   
+    }
+
+    const handleBlock = () => {
+        props.deleteOneListedMovie(movieData);
+        props.addOneBlockedMovie(movieData);   
+    }
+
     return (
         <div className="showSingleMovie">
             <img src={imgUrl} alt={movieData.id} />
             <div className="operator">
-                <img src="./like.png" alt="like icon" />
-                <img src="./block.png" alt="block icon" />
+                <img src="./like.png" alt="like icon" onClick={handleLike} />
+                <img src="./block.png" alt="block icon" onClick={handleBlock} />
             </div>
             <div>
                 <p className="title">{title}</p>
