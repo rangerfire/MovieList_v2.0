@@ -31,7 +31,6 @@ class movieListPage extends React.Component {
             this.setState({
                 data: response.results.slice()
             });
-            console.log(this.state.data);
         });
     }    
 
@@ -41,6 +40,7 @@ class movieListPage extends React.Component {
                 key={movie.id} movieData={movie}
                 addOneLikedMovie={this.props.addOneLikedMovie}
                 addOneBlockedMovie={this.props.addOneBlockedMovie}
+                deleteOneListedMovie={this.props.deleteOneListedMovie}
             />
         );
         return (
@@ -76,7 +76,8 @@ const mapDispatchToProps = (dispatch) => ({
     addOneLikedMovie: (movieData) => dispatch( actions.addOneLikedMovie(movieData) ),
     addOneBlockedMovie: (movieData) => dispatch ( actions.addOneBlockedMovie(movieData) ),
     deleteOneLikedMovie: (movieData) => dispatch( actions.deleteOneLikedMovie(movieData) ),
-    deleteOneBlockedMovie: (movieData) => dispatch( actions.deleteOneBlockedMovie(movieData) )
+    deleteOneBlockedMovie: (movieData) => dispatch( actions.deleteOneBlockedMovie(movieData) ),
+    deleteOneListedMovie: (movieData) => dispatch( actions.deleteOneListedMovie(movieData) )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(movieListPage);

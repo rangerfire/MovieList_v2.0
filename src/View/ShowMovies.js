@@ -18,6 +18,7 @@ const ShowMovies = (props) => {
     }
 
     const handleBlock = () => {
+        props.deleteOneListedMovie(movieData);
         props.addOneBlockedMovie(movieData);   
     }
 
