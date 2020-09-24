@@ -1,8 +1,11 @@
 import React from 'react';
 import '../Styles/App.css';
+import '../Styles/Liked_Blocked_Page.css'
 import SideNav from "./sideNav";
 import HomePage from "./homePage";
 import MovieListPage from "./MovieListPage";
+import LikedListPage from './LikedListPage';
+import BlockedListPage from './BlockedListPage';
 
 function App() {
   const [page, setPage] = React.useState(0);
@@ -15,15 +18,15 @@ function App() {
   } else if (page === 1) {
     currentPage = <MovieListPage />;
   } else if (page === 2) {
-    currentPage = null;
+    currentPage = <LikedListPage />;
   } else if (page === 3) {
-    currentPage = null;
+    currentPage = <BlockedListPage />;
   }
   return (
     <div className="App">
       <SideNav onPageChange={handleClick} />
       <div className={"main"}>
-        <h1>Our Top Rated Movie List</h1>
+        <header>Our Top Rated Movie List</header>
         {currentPage}
       </div>
     </div>
