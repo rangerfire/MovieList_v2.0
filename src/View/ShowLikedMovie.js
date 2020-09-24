@@ -19,7 +19,7 @@ const ShowLikedMovie = (props) => {
     return (
         <div className="singleLikedMovie">
             <img src={imgUrl} alt={movieData.id} />
-            <div className="operator">
+            <div className="LBoperator">
                 <img src="./img/delete_icon.png" alt="delete icon" onClick={handleDelete}/>
                 <img src="./img/block_icon.png" alt="block icon" onClick={handleBlock}/>
                 <img src="./img/ellipsis_icon.png" alt="ellipsis icon"/>
