@@ -10,6 +10,11 @@ const addOneBlockedMovie = (movieData) => ({
     movieData: movieData
 });
 
+const addOneMovie = (movieData) => ({
+    type: Actions.ADD_ONE_MOVIE,
+    movieData: movieData
+});
+
 const deleteOneLikedMovie = (movieData) => ({
     type: Actions.DELETE_ONE_LIKED_MOVIE,
     movieData: movieData
@@ -32,6 +37,7 @@ const deleteOneListedMovie = (movieData) => ({
 export const actions = {
     addOneLikedMovie, 
     addOneBlockedMovie,
+    addOneMovie,
     deleteOneLikedMovie,
     deleteOneBlockedMovie,
     deleteOneListedMovie

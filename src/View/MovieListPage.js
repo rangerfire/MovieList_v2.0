@@ -17,30 +17,22 @@ const url = ''.concat(pageBaseURL,action,ApiKey,lang,page);;
 
 class movieListPage extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: []
-        };
-    }
-
     componentDidMount = () => {
         axios.get(url)
         .then( res => {
-            const response = res.data;
-            this.setState({
-                data: response.results.slice()
-            });
+            const response = res.data.results.slice(20);
+            for(let i=0;i<20;i++) 
+                this.props.addOneMovie(response[i]);
         });
     }    
 
     render() {
-        const movieList = this.state.data.slice().map(movie => 
+        const movieList = this.props.movieList.map( movie => 
             <ShowMovies 
                 key={movie.id} movieData={movie}
+                deleteOneListedMovie={this.props.deleteOneListedMovie}
                 addOneLikedMovie={this.props.addOneLikedMovie}
                 addOneBlockedMovie={this.props.addOneBlockedMovie}
-                deleteOneListedMovie={this.props.deleteOneListedMovie}
             />
         );
         return (
@@ -69,7 +61,8 @@ class movieListPage extends React.Component {
 
 const mapStateToProps = (state) => ({
     LikedMovies: Selector.LikedMoviesSelector(state),
-    BlockedMovies: Selector.BlockedMoviesSelector(state)
+    BlockedMovies: Selector.BlockedMoviesSelector(state),
+    ListedMovies: Selector.ListedMoviesSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
