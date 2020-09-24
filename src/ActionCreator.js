@@ -5,7 +5,16 @@ const addOneLikedMovie = (movieData) => ({
     movieData: movieData
 });
 
+const addOneBlockedMovie = (movieData) => ({
+    type: Actions.ADD_ONE_BLOCKED_MOVIE,
+    movieData: movieData
+});
+/*
+    put your action creators here, don't forget to add them into export
+*/
+
 
 export const actions = {
-    addOneLikedMovie
+    addOneLikedMovie, 
+    addOneBlockedMovie
 };
