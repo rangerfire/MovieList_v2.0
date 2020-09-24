@@ -1,6 +1,8 @@
 //action type
 const ADD_ONE_LIKED_MOVIE = "ADD_ONE_LIKED_MOVIE";
 const ADD_ONE_BLOCKED_MOVIE = "ADD_ONE_BLOCKED_MOVIE";
+const DELETE_ONE_LIKED_MOVIE = "DELETE_ONE_LIKED_MOVIE";
+const DELETE_ONE_BLOCKED_MOVIE = "DELETE_ONE_BLOCKED_MOVIE";
 
 /*
     put your action.type constants here, don't forget to add them into export
@@ -20,5 +22,7 @@ const API_KEY = "9d3badb0c8d83a0bce6bf3cf96e3cc60";
 export default {
     ADD_ONE_LIKED_MOVIE,
     ADD_ONE_BLOCKED_MOVIE,
+    DELETE_ONE_LIKED_MOVIE,
+    DELETE_ONE_BLOCKED_MOVIE,
     API_KEY
 };

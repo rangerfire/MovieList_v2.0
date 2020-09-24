@@ -1,12 +1,13 @@
 .side-nav {
-  height: 100vh;
+  /* height: 100vh; */
   background: #eee;
-  width: 200px;
+  /* width: 200px; */
   padding-top: 30px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* box-sizing: border-box; */
+  flex-basis: 10vw;
 }
 
 .link {

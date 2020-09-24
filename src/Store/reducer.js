@@ -43,8 +43,41 @@ const reducer = (state=initialState, action={}) => {
             return {
                 ...state,
                 BlockedMovies: newBlockedMovies1
-            };    
+            };  
+            
+        case Actions.DELETE_ONE_LIKED_MOVIE:
+            const newMovieData3 = action.movieData;
+            const newLikedMovies2 = state.LikedMovies.slice();
+            //find the index of the movie you want to delete from liked movies
+            const finder3 = (finditem) => {
+                return finditem.id === newMovieData3.id;
+            };
+            const index3 = newLikedMovies2.findIndex(finder3);
+            if(index3 >= 0)
+                newLikedMovies2.splice(index3, 1);
+            else
+                alert("no this liked movie");
+            return {
+                ...state,
+                LikedMovies: newLikedMovies2
+            };
 
+        case Actions.DELETE_ONE_BLOCKED_MOVIE:
+            const newMovieData4 = action.movieData;
+            const newBlockedMovies2 = state.BlockedMovies.slice();
+            //find the index of the movie you want to delete from blocked movies
+            const finder4 = (finditem) => {
+                return finditem.id === newMovieData4.id;
+            };
+            const index4 = newBlockedMovies2.findIndex(finder4);
+            if(index4 >= 0)
+                newBlockedMovies2.splice(index4, 1);
+            else
+                alert("no this blocked movie");
+            return {
+                ...state,
+                BlockedMovies: newBlockedMovies2
+            };
         /*
 
           put your actions handler here

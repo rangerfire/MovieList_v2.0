@@ -36,7 +36,11 @@ class LikedListPage extends React.Component {
         //                             <ShowLikedMovie key={movie.id} movieData={movie}/>
         //                         );
         const likedMovies = this.props.LikedMovies.map( movie => 
-            <ShowLikedMovie key={movie.id} movieData={movie}/>
+            <ShowLikedMovie 
+                key={movie.id} movieData={movie} 
+                deleteOneLikedMovie={this.props.deleteOneLikedMovie}
+                addOneBlockedMovie={this.props.addOneBlockedMovie}
+            />
         );
 
         return (
@@ -56,7 +60,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    addOneLikedMovie: (movieData) => dispatch( actions.addOneLikedMovie(movieData) )
+    addOneLikedMovie: (movieData) => dispatch( actions.addOneLikedMovie(movieData) ),
+    addOneBlockedMovie: (movieData) => dispatch ( actions.addOneBlockedMovie(movieData) ),
+    deleteOneLikedMovie: (movieData) => dispatch( actions.deleteOneLikedMovie(movieData) ),
+    deleteOneBlockedMovie: (movieData) => dispatch( actions.deleteOneBlockedMovie(movieData) )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LikedListPage);
