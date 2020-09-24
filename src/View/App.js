@@ -2,6 +2,8 @@ import React from 'react';
 import '../Styles/App.css';
 import SideNav from "./sideNav";
 import HomePage from "./homePage";
+import MovieListPage from "./MovieListPage";
+
 function App() {
   const [page, setPage] = React.useState(0);
   const handleClick = React.useCallback((v) => {
@@ -11,7 +13,7 @@ function App() {
   if (page === 0) {
     currentPage = <HomePage />;
   } else if (page === 1) {
-    currentPage = null;
+    currentPage = <MovieListPage />;
   } else if (page === 2) {
     currentPage = null;
   } else if (page === 3) {
