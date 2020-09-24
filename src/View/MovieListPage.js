@@ -3,6 +3,10 @@ import axios from 'axios';
 import ShowMovies from './ShowMovies';
 import "../Styles/MovieListPage.css";
 
+import { connect } from 'react-redux';
+import Selector from '../Selector';
+import { actions } from '../ActionCreator';
+
 const pageBaseURL = 'https://api.themoviedb.org/3/';
 const action = 'movie/popular?api_key=';
 const ApiKey = '43d2c15376ca311ed501203d6c7cf47f';
@@ -31,13 +35,14 @@ class movieListPage extends React.Component {
         });
     }    
 
-
-
     render() {
         const movieList = this.state.data.slice().map(movie => 
-                                    <ShowMovies key={movie.id} movieData={movie}
-                                    />
-                                );
+            <ShowMovies 
+                key={movie.id} movieData={movie}
+                addOneLikedMovie={this.props.addOneLikedMovie}
+                addOneBlockedMovie={this.props.addOneBlockedMovie}
+            />
+        );
         return (
             <div className="movieListPage">
                 <div className="sortArea">
@@ -62,4 +67,17 @@ class movieListPage extends React.Component {
     }
 }
 
-export default movieListPage; 
+const mapStateToProps = (state) => ({
+    LikedMovies: Selector.LikedMoviesSelector(state),
+    BlockedMovies: Selector.BlockedMoviesSelector(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    addOneLikedMovie: (movieData) => dispatch( actions.addOneLikedMovie(movieData) ),
+    addOneBlockedMovie: (movieData) => dispatch ( actions.addOneBlockedMovie(movieData) ),
+    deleteOneLikedMovie: (movieData) => dispatch( actions.deleteOneLikedMovie(movieData) ),
+    deleteOneBlockedMovie: (movieData) => dispatch( actions.deleteOneBlockedMovie(movieData) )
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(movieListPage);
+
