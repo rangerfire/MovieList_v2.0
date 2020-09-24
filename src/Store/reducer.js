@@ -88,10 +88,11 @@ const reducer = (state=initialState, action={}) => {
                 return finditem.id === newMovieData5.id;
             };
             const index5 = newListedMovie1.findIndex(finder5);  //find >=0, not find <0
-            if(index5 >= 0)
-                return {...state};
-            else
+            const index5_1 = state.BlockedMovies.findIndex(finder5);
+            if(index5 < 0 && index5_1 < 0)
                 newListedMovie1.push(newMovieData5);
+            else
+                return {...state};
             return {
                 ...state,
                 movieList: newListedMovie1
