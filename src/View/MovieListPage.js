@@ -20,7 +20,7 @@ class movieListPage extends React.Component {
     componentDidMount = () => {
         axios.get(url)
         .then( res => {
-            const response = res.data.results.slice(20);
+            const response = res.data.results.slice();
             for(let i=0;i<20;i++) 
                 this.props.addOneMovie(response[i]);
         });
@@ -62,12 +62,13 @@ class movieListPage extends React.Component {
 const mapStateToProps = (state) => ({
     LikedMovies: Selector.LikedMoviesSelector(state),
     BlockedMovies: Selector.BlockedMoviesSelector(state),
-    ListedMovies: Selector.ListedMoviesSelector(state)
+    movieList: Selector.ListedMoviesSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
     addOneLikedMovie: (movieData) => dispatch( actions.addOneLikedMovie(movieData) ),
     addOneBlockedMovie: (movieData) => dispatch ( actions.addOneBlockedMovie(movieData) ),
+    addOneMovie: (movieData) => dispatch( actions.addOneMovie(movieData)),
     deleteOneLikedMovie: (movieData) => dispatch( actions.deleteOneLikedMovie(movieData) ),
     deleteOneBlockedMovie: (movieData) => dispatch( actions.deleteOneBlockedMovie(movieData) ),
     deleteOneListedMovie: (movieData) => dispatch( actions.deleteOneListedMovie(movieData) )

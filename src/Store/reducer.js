@@ -3,7 +3,7 @@ import Actions from '../Constants'
 const initialState = {
     LikedMovies: [],
     BlockedMovies: [],
-    ListedMovies: []
+    movieList: []
     /*
         put your states here
     */
@@ -113,7 +113,6 @@ const reducer = (state=initialState, action={}) => {
                 ...state,
                 movieList: newListedMovie2
             };
-
 
         /*
 
