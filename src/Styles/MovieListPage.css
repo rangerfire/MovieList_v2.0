@@ -1,0 +1,89 @@
+.sortArea {
+    display: flex;
+    justify-content:center;
+}
+
+.sortArea button{
+    margin:1vw 7vw;
+    background-color: 		#87CEEB;
+    font-family: Georgia;
+}
+
+.paginationArea {
+    display:flex;
+    justify-content:center;
+}
+
+.paginationArea p{
+    margin:0px 28vw;
+    font-family: Georgia;
+}
+
+.paginationArea button{
+    font-family: Georgia;
+}
+
+.ShowMovies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.showSingleMovie {
+    margin: 1vw;
+    flex-basis: 10vw;
+}
+
+.ShowMovies img{
+    width: 15vw;
+    height: 25vw;
+}
+
+.operator {
+    height: 5vh;
+}
+
+.operator img {
+    margin: 0 1vw;
+    width: 1.5vw;
+    height: 1.5vw;
+} 
+
+.count_ave {
+    display:flex;
+    justify-content:center;
+}
+
+.count_ave p{
+    font-size:8px;
+    margin:5px 1vw;
+    font-family: Georgia;
+}
+
+.overview {
+    font-size:8px;
+    font-family: Georgia;
+}
+
+.line {
+    margin: 5px 7vw;
+    border-top: 1px solid #000000;
+}
+
+.title {
+    font-size:12px;
+    margin:0px 1vw;
+    font-family: Georgia;
+}
+
+.release_date {
+    font-size:12px;
+    margin:0px 1vw;
+    font-family: Georgia;
+}
+
+.vote_average {
+    border-left: 2px solid #369;
+}
+

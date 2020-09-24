@@ -3,9 +3,9 @@ import '../Styles/App.css';
 import '../Styles/Liked_Blocked_Page.css'
 import SideNav from "./sideNav";
 import HomePage from "./homePage";
+import MovieListPage from "./MovieListPage";
 import LikedListPage from './LikedListPage';
 import BlockedListPage from './BlockedListPage';
-
 
 function App() {
   const [page, setPage] = React.useState(0);
@@ -16,7 +16,7 @@ function App() {
   if (page === 0) {
     currentPage = <HomePage />;
   } else if (page === 1) {
-    currentPage = null;
+    currentPage = <MovieListPage />;
   } else if (page === 2) {
     currentPage = <LikedListPage />;
   } else if (page === 3) {
