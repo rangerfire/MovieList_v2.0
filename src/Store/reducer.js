@@ -13,20 +13,32 @@ const reducer = (state=initialState, action={}) => {
     switch (action.type) {
         
         case Actions.ADD_ONE_LIKED_MOVIE:   
-            const newMovieData = action.movieData;
+            const newMovieData1 = action.movieData;
             const newLikedMovies1 = state.LikedMovies.slice();
             //check if this movie already exists
             const finder1 = (finditem) => {
-                return finditem.id === newMovieData.id;
+                return finditem.id === newMovieData1.id;
             };
             const index1 = newLikedMovies1.findIndex(finder1);  //find >=0, not find <0
-            if(index1 >= 0)
+            if(index1 >= 0) {
+                alert("Like once is enough ^.^");
                 return {...state};
+            }                
             else
-                newLikedMovies1.push(newMovieData);
+                newLikedMovies1.push(newMovieData1);
+            //should also delete it from blocked list if needed !!!!!            
+            const newBlockedMovies1_1 = state.BlockedMovies.slice();
+            const finder1_1 = (finditem) => {
+                return finditem.id === newMovieData1.id;
+            };
+            const index1_1 = newBlockedMovies1_1.findIndex(finder1_1);  //find >=0, not find <0
+            if(index1_1 >= 0)
+                newBlockedMovies1_1.splice(index1_1, 1);
+
             return {
                 ...state,
-                LikedMovies: newLikedMovies1
+                LikedMovies: newLikedMovies1,
+                BlockedMovies: newBlockedMovies1_1
             };
 
         case Actions.ADD_ONE_BLOCKED_MOVIE: 
@@ -41,8 +53,18 @@ const reducer = (state=initialState, action={}) => {
                 return {...state};
             else
                 newBlockedMovies1.push(newMovieData2);
+            //should also delete it from liked list if needed !!!!!
+            const newLikedMovies1_1 = state.LikedMovies.slice();
+            const finder2_1 = (finditem) => {
+                return finditem.id === newMovieData2.id;
+            };
+            const index2_1 = newLikedMovies1_1.findIndex(finder2_1);  //find >=0, not find <0
+            if(index2_1 >= 0)
+                newLikedMovies1_1.splice(index2_1, 1);
+
             return {
                 ...state,
+                LikedMovies: newLikedMovies1_1,
                 BlockedMovies: newBlockedMovies1
             };  
             
