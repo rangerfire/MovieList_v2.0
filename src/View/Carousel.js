@@ -29,7 +29,7 @@ const Caro = () =>{
     //const test2 =''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)
     useEffect(() => {
       fetchData();
-    });
+    },[]);
 
     return (
       <React.Fragment>
