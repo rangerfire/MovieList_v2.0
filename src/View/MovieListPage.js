@@ -43,14 +43,13 @@ class movieListPage extends React.Component {
                     <button>Average Score</button>
                     <button>Release Date</button>
                 </div>
-                <p></p>
-                <div className="line"></div>
+                <hr />
                 <div className="paginationArea">
                     <button>Prev</button>
                     <p className="pageText">1/300</p>
                     <button>Next</button>
                 </div>
-                <div className="line"></div>
+                <hr />
                 <div className="ShowMovies">
                     {movieList}
                 </div>
