@@ -12,6 +12,7 @@ const imgBaseUrl = 'https://image.tmdb.org/t/p/'
 const imgSize = 'w500'
 const imgurl =''.concat(imgBaseUrl,imgSize);
 
+
 const Caro = () =>{
     const [index, setIndex] = React.useState(0);
     const [planets,setPlanets]= React.useState({});
@@ -21,41 +22,70 @@ const Caro = () =>{
     async function fetchData() {
       const res=axios.get(url)
         .then(res => res.data.results)
-        .then(res=>res.slice(18))
+        .then(res=>res.slice(15))
         .then(res => setPlanets(res))
     }
-    const test1 =''.concat(imgurl, planets[0]!==undefined && planets[0].poster_path)
-    const test2 =''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)
+    //const test1 =''.concat(imgurl, planets[0]!==undefined && planets[0].poster_path)
+    //const test2 =''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)
     useEffect(() => {
       fetchData();
     });
 
     return (
       <React.Fragment>
-      <div></div>
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={test1}
-            alt="first slide"
-          />
-          <Carousel.Caption>
-            <h3>{planets[0]!==undefined&&planets[0].title}</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={test2}
-            alt="Second slide"
-          />
+           <img
+             className="d-block w-100"
+             src={''.concat(imgurl, planets[0]!==undefined && planets[0].poster_path)}
+             alt="first slide"
+           />
+           <Carousel.Caption>
+             <h3>{planets[0]!==undefined&&planets[0].title}</h3>
+           </Carousel.Caption>
+         </Carousel.Item>
+         <Carousel.Item>
+           <img
+             className="d-block w-100"
+             src={''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)}
+             alt="Second slide"
+           />
   
-          <Carousel.Caption>
-            <h3>{planets[1]!==undefined&&planets[1].title}</h3>
+           <Carousel.Caption>
+             <h3>{planets[1]!==undefined&&planets[1].title}</h3>
 
-          </Carousel.Caption>
-        </Carousel.Item>
+           </Carousel.Caption>
+         </Carousel.Item>
+         <Carousel.Item>
+           <img
+             className="d-block w-100"
+             src={''.concat(imgurl, planets[2]!==undefined && planets[2].poster_path)}
+             alt="first slide"
+           />
+           <Carousel.Caption>
+             <h3>{planets[2]!==undefined&&planets[2].title}</h3>
+           </Carousel.Caption>
+         </Carousel.Item>
+         <Carousel.Item>
+           <img
+             className="d-block w-100"
+             src={''.concat(imgurl, planets[3]!==undefined && planets[3].poster_path)}
+             alt="first slide"
+           />
+           <Carousel.Caption>
+             <h3>{planets[3]!==undefined&&planets[3].title}</h3>
+           </Carousel.Caption>
+         </Carousel.Item>
+         <Carousel.Item>
+           <img
+             className="d-block w-100"
+             src={''.concat(imgurl, planets[4]!==undefined && planets[4].poster_path)}
+             alt="first slide"
+           />
+           <Carousel.Caption>
+             <h3>{planets[4]!==undefined&&planets[4].title}</h3>
+           </Carousel.Caption>
+         </Carousel.Item>
       </Carousel>
       </React.Fragment>
     );
