@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './Styles/index.css';
 import App from './View/App';
 import * as serviceWorker from './serviceWorker';
-//below are redux dependency
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './Store/reducer';
+import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const store = createStore(reducer);
+
+
 
 ReactDOM.render(
   <Provider store={store}>
