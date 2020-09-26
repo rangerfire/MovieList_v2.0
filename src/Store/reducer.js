@@ -36,12 +36,23 @@ const reducer = (state=initialState, action={}) => {
             // const newLikedMovies = state.LikedMovies.slice();
             const index1 = newLikedMovies.findIndex(finder);  //find >=0, not find <0
             if(index1 >= 0)
+                alert("Like once is enough ^.^");
                 return {...state};
-            else
+            }                
                 newLikedMovies.push(newMovieData);
+            //should also delete it from blocked list if needed !!!!!            
+            const newBlockedMovies1_1 = state.BlockedMovies.slice();
+            const finder1_1 = (finditem) => {
+                return finditem.id === newMovieData1.id;
+            };
+            const index1_1 = newBlockedMovies1_1.findIndex(finder1_1);  //find >=0, not find <0
+            if(index1_1 >= 0)
+                newBlockedMovies1_1.splice(index1_1, 1);
+
             return {
                 ...state,
-                LikedMovies: newLikedMovies
+                LikedMovies: newLikedMovies,
+                BlockedMovies: newBlockedMovies1_1
             };
 
         case Actions.ADD_ONE_BLOCKED_MOVIE: 
@@ -52,6 +63,20 @@ const reducer = (state=initialState, action={}) => {
                 newBlockedMovies.push(newMovieData);
             return {
                 ...state,
+                BlockedMovies: newBlockedMovies
+                newBlockedMovies.push(newMovieData);
+            //should also delete it from liked list if needed !!!!!
+            const newLikedMovies1_1 = state.LikedMovies.slice();
+            const finder2_1 = (finditem) => {
+                return finditem.id === newMovieData2.id;
+            };
+            const index2_1 = newLikedMovies1_1.findIndex(finder2_1);  //find >=0, not find <0
+            if(index2_1 >= 0)
+                newLikedMovies1_1.splice(index2_1, 1);
+
+            return {
+                ...state,
+                LikedMovies: newLikedMovies1_1,
                 BlockedMovies: newBlockedMovies
             };  
             

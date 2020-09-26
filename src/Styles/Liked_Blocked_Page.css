@@ -16,9 +16,15 @@
     height: 1.5vw;
 }
 
+.LBoperator img:active {
+    box-shadow: 0.5vw 0.5vh 10px gray;
+    border-radius: 10%;
+}
+
 /*----------------------------- for liked page -----------------------*/
 
 .ShowLikedMovie {
+    margin: 3vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -63,6 +69,7 @@
 /*----------------------------- for blocked page -----------------------*/
 
 .ShowBlockedMovie {
+    margin: 3vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -108,7 +115,7 @@
 /* ------------------------- mobile version ------------------------- */
 @media only screen and (max-width: 768px) {
     .LBoperator {
-        top: 58vw;
+        top: 65vw;
         width: 50vw;
     }
     .LBoperator img {
@@ -120,45 +127,44 @@
         margin: auto;
         margin-top: 6vh;
         flex-basis: 50vw;
-        height: 65vw;
+        height: 70vw;
     }
     .singleLikedMovie > img {
         width: 50vw;
-        height: 65vw;
+        height: 70vw;
     }
     .singleLikedMovie:hover > img {
-        transform: translate(0, -5vh);
-        -webkit-transform: translate(0, -5vh);
-        -moz-transform: translate(0, -5vh);
-        -o-transform: translate(0, -5vh);
-        -ms-transform: translate(0, -5vh);
+        transform: translate(0, -5vw);
+        -webkit-transform: translate(0, -5vw);
+        -moz-transform: translate(0, -5vw);
+        -o-transform: translate(0, -5vw);
+        -ms-transform: translate(0, -5vw);
     }
 
     .singleBlockedMovie {
         margin: auto;
         margin-top: 6vh;
         flex-basis: 50vw;
-        height: 65vw;
+        height: 70vw;
     }
     .singleBlockedMovie > img {
         width: 50vw;
-        height: 65vw;
+        height: 70vw;
     }
     .singleBlockedMovie:hover > img {
-        transform: translate(0, -5vh);
-        -webkit-transform: translate(0, -5vh);
-        -moz-transform: translate(0, -5vh);
-        -o-transform: translate(0, -5vh);
-        -ms-transform: translate(0, -5vh);
+        transform: translate(0, -5vw);
+        -webkit-transform: translate(0, -5vw);
+        -moz-transform: translate(0, -5vw);
+        -o-transform: translate(0, -5vw);
+        -ms-transform: translate(0, -5vw);
     }
     
 }
 
 /* ------------------------- ipad pro version ------------------------- */
-@media only screen and (max-width: 1200px) and (min-width: 769px) {
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
     .LBoperator {
-        top: 36vw;
-        /* background-color: red; */
+        top: 37vw;
     }
     .LBoperator img {
         width: 3vw;
@@ -177,11 +183,11 @@
         height: 40vw;
     }
     .singleLikedMovie:hover > img {
-        transform: translate(0, -4vh);
-        -webkit-transform: translate(0, -4vh);
-        -moz-transform: translate(0, -4vh);
-        -o-transform: translate(0, -4vh);
-        -ms-transform: translate(0, -4vh);
+        transform: translate(0, -3vw);
+        -webkit-transform: translate(0, -3vw);
+        -moz-transform: translate(0, -3vw);
+        -o-transform: translate(0, -3vw);
+        -ms-transform: translate(0, -3vw);
     }
 
     .singleBlockedMovie {
@@ -196,10 +202,10 @@
         height: 40vw;
     }
     .singleBlockedMovie:hover > img {
-        transform: translate(0, -4vh);
-        -webkit-transform: translate(0, -4vh);
-        -moz-transform: translate(0, -4vh);
-        -o-transform: translate(0, -4vh);
-        -ms-transform: translate(0, -4vh);
+        transform: translate(0, -3vw);
+        -webkit-transform: translate(0, -3vw);
+        -moz-transform: translate(0, -3vw);
+        -o-transform: translate(0, -3vw);
+        -ms-transform: translate(0, -3vw);
     }
 }
