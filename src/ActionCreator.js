@@ -10,11 +10,6 @@ const addOneBlockedMovie = (movieData) => ({
     movieData: movieData
 });
 
-const addOneMovie = (movieData) => ({
-    type: Actions.ADD_ONE_MOVIE,
-    movieData: movieData
-});
-
 const deleteOneLikedMovie = (movieData) => ({
     type: Actions.DELETE_ONE_LIKED_MOVIE,
     movieData: movieData
@@ -25,10 +20,18 @@ const deleteOneBlockedMovie = (movieData) => ({
     movieData: movieData
 });
 
-const deleteOneListedMovie = (movieData) => ({
-    type: Actions.DELETE_ONE_LISTED_MOVIE,
-    movieData: movieData
+const changePage = (Page) => ({
+    type: Actions.CHANGE_PAGE,
+    Page: Page    
 });
+
+//add 20 movies into redux
+const addOnePageMovies = (pageNumber, onePageMovies) => ({
+    type: Actions.ADD_ONE_PAGE_MOVIES,
+    pageNumber: pageNumber,
+    onePageMovies: onePageMovies
+});
+
 /*
     put your action creators here, don't forget to add them into export
 */
@@ -37,8 +40,10 @@ const deleteOneListedMovie = (movieData) => ({
 export const actions = {
     addOneLikedMovie, 
     addOneBlockedMovie,
-    addOneMovie,
+    // addOneMovie,
     deleteOneLikedMovie,
     deleteOneBlockedMovie,
-    deleteOneListedMovie
+    // deleteOneListedMovie,
+    changePage,
+    addOnePageMovies
 };
