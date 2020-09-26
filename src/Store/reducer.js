@@ -1,9 +1,11 @@
+import { actions } from '../ActionCreator';
 import Actions from '../Constants'
 
 const initialState = {
     LikedMovies: [],
     BlockedMovies: [],
-    movieList: []
+    movieList: [],
+    pageList: []
     /*
         put your states here
     */
@@ -114,6 +116,23 @@ const reducer = (state=initialState, action={}) => {
                 ...state,
                 movieList: newListedMovie2
             };
+
+        case Actions.ADD_ONE_PAGE:
+            const newPage = actions.moviePage;
+            const newPageList = state.pageList.slice();
+            const finder7 = (finditem) => {
+                return finditem.id === newPage.id;
+            };
+            const index7 = newPageList.findIndex(finder7);
+            if(index7 >= 0)
+                return {...state};
+            else
+                newPageList.push(newPage);
+            return {
+                ...state,
+                pageList: newPageList
+            };
+
 
         /*
 

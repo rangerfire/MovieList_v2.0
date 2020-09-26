@@ -12,8 +12,11 @@ const action = 'movie/popular?api_key=';
 const ApiKey = '43d2c15376ca311ed501203d6c7cf47f';
 const lang = '&language=en-US';
 const page = '&page=1';
+const preURL = 'https://api.themoviedb.org/3/movie/popular?api_key=43d2c15376ca311ed501203d6c7cf47f&language=en-US&page=';
+var page_1 = 1;
 
 const url = ''.concat(pageBaseURL,action,ApiKey,lang,page);;
+let url_1 = ''.concat(preURL, page_1.toString(10));
 
 class movieListPage extends React.Component {
 
@@ -24,7 +27,28 @@ class movieListPage extends React.Component {
             for(let i=0;i<20;i++) 
                 this.props.addOneMovie(response[i]);
         });
-    }    
+    } 
+
+    prevPageHandeler = () => {
+        if(page_1 > 0) {
+            page_1 -= 1;
+       
+        }
+    
+
+    }
+
+    nextPageHandeler = () => {
+        page_1 += 1;
+        axios.get(url_1)
+        .then(res => {
+            const response_1 = res.data.results.slice();
+            for(let i=0;i<20;i++) 
+                this.props.addOneMovie(response_1[i]);
+               
+        });
+    }
+
 
     render() {
         const movieList = this.props.movieList.map( movie => 
@@ -33,6 +57,7 @@ class movieListPage extends React.Component {
                 deleteOneListedMovie={this.props.deleteOneListedMovie}
                 addOneLikedMovie={this.props.addOneLikedMovie}
                 addOneBlockedMovie={this.props.addOneBlockedMovie}
+                addOnePage={this.props.addOnePage}
             />
         );
         return (
@@ -46,9 +71,9 @@ class movieListPage extends React.Component {
                 <p></p>
                 <div className="line"></div>
                 <div className="paginationArea">
-                    <button>Prev</button>
+                    <button onClick={prevPageHandeler}>Prev</button>
                     <p className="pageText">1/300</p>
-                    <button>Next</button>
+                    <button onClick={nextPageHandeler}>Next</button>
                 </div>
                 <div className="line"></div>
                 <div className="ShowMovies">
@@ -62,16 +87,18 @@ class movieListPage extends React.Component {
 const mapStateToProps = (state) => ({
     LikedMovies: Selector.LikedMoviesSelector(state),
     BlockedMovies: Selector.BlockedMoviesSelector(state),
-    movieList: Selector.ListedMoviesSelector(state)
+    movieList: Selector.ListedMoviesSelector(state),
+    pageList: Selector.PageListSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
     addOneLikedMovie: (movieData) => dispatch( actions.addOneLikedMovie(movieData) ),
     addOneBlockedMovie: (movieData) => dispatch ( actions.addOneBlockedMovie(movieData) ),
-    addOneMovie: (movieData) => dispatch( actions.addOneMovie(movieData)),
+    addOneMovie: (movieData) => dispatch( actions.addOneMovie(movieData) ),
     deleteOneLikedMovie: (movieData) => dispatch( actions.deleteOneLikedMovie(movieData) ),
     deleteOneBlockedMovie: (movieData) => dispatch( actions.deleteOneBlockedMovie(movieData) ),
-    deleteOneListedMovie: (movieData) => dispatch( actions.deleteOneListedMovie(movieData) )
+    deleteOneListedMovie: (movieData) => dispatch( actions.deleteOneListedMovie(movieData) ),
+    addOnePage: (moviePage) => dispatch(actions.addOnePage(moviePage) )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(movieListPage);

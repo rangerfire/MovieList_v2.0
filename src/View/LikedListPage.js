@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import axios from 'axios';
 import ShowLikedMovie from './ShowLikedMovie';
 //redux
 import { connect } from 'react-redux';

@@ -29,6 +29,13 @@ const deleteOneListedMovie = (movieData) => ({
     type: Actions.DELETE_ONE_LISTED_MOVIE,
     movieData: movieData
 });
+
+const addOnePage = (movieData) => ({
+    type: Actions.ADD_ONE_PAGE,
+    movieData: movieData
+
+});
+
 /*
     put your action creators here, don't forget to add them into export
 */
@@ -40,5 +47,6 @@ export const actions = {
     addOneMovie,
     deleteOneLikedMovie,
     deleteOneBlockedMovie,
-    deleteOneListedMovie
+    deleteOneListedMovie,
+    addOnePage
 };
