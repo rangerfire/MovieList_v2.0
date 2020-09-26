@@ -40,9 +40,6 @@ const Caro = () =>{
              src={''.concat(imgurl, planets[0]!==undefined && planets[0].poster_path)}
              alt="first slide"
            />
-           <Carousel.Caption>
-             <h3>{planets[0]!==undefined&&planets[0].title}</h3>
-           </Carousel.Caption>
          </Carousel.Item>
          <Carousel.Item>
            <img
@@ -50,11 +47,6 @@ const Caro = () =>{
              src={''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)}
              alt="Second slide"
            />
-  
-           <Carousel.Caption>
-             <h3>{planets[1]!==undefined&&planets[1].title}</h3>
-
-           </Carousel.Caption>
          </Carousel.Item>
          <Carousel.Item>
            <img
@@ -62,9 +54,6 @@ const Caro = () =>{
              src={''.concat(imgurl, planets[2]!==undefined && planets[2].poster_path)}
              alt="first slide"
            />
-           <Carousel.Caption>
-             <h3>{planets[2]!==undefined&&planets[2].title}</h3>
-           </Carousel.Caption>
          </Carousel.Item>
          <Carousel.Item>
            <img
@@ -72,9 +61,6 @@ const Caro = () =>{
              src={''.concat(imgurl, planets[3]!==undefined && planets[3].poster_path)}
              alt="first slide"
            />
-           <Carousel.Caption>
-             <h3>{planets[3]!==undefined&&planets[3].title}</h3>
-           </Carousel.Caption>
          </Carousel.Item>
          <Carousel.Item>
            <img
@@ -82,9 +68,6 @@ const Caro = () =>{
              src={''.concat(imgurl, planets[4]!==undefined && planets[4].poster_path)}
              alt="first slide"
            />
-           <Carousel.Caption>
-             <h3>{planets[4]!==undefined&&planets[4].title}</h3>
-           </Carousel.Caption>
          </Carousel.Item>
       </Carousel>
       </React.Fragment>
