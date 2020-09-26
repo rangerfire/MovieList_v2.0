@@ -2,76 +2,48 @@ import React, { useEffect } from "react"
 import axios from "axios"
 import Carousel from 'react-bootstrap/Carousel'
 import "../Styles/Carousel.css"
-const pageBaseURL = 'https://api.themoviedb.org/3/';
-const action = 'movie/popular?api_key=';
-const JacksonApiKey = '9d3badb0c8d83a0bce6bf3cf96e3cc60';
-const lang = '&language=en-US';
-const page = '&page=1';
-const url = ''.concat(pageBaseURL,action,JacksonApiKey,lang,page);
-const imgBaseUrl = 'https://image.tmdb.org/t/p/'
+import Constants from '../Constants';
+
+// preURL => 'https://api.themoviedb.org/3/movie/popular?api_key=43d2c15376ca311ed501203d6c7cf47f&language=en-US&page='
+const preURL = Constants.PREURL;
+const url = ''.concat(preURL, 1);
+const imgBaseUrl = 'https://image.tmdb.org/t/p/';
 const imgSize = 'w500'
 const imgurl =''.concat(imgBaseUrl,imgSize);
 
-
 const Caro = () =>{
     const [index, setIndex] = React.useState(0);
-    const [planets,setPlanets]= React.useState({});
+    // const [planets,setPlanets]= React.useState([]);
+    const [CaroItem, setCaroItem] = React.useState([]);
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);};
 
-    async function fetchData() {
-      const res=axios.get(url)
-        .then(res => res.data.results)
-        .then(res=>res.slice(15))
-        .then(res => setPlanets(res))
+    const fetchData = () => {
+      axios.get(url)
+        .then(res => {
+          const Item = res.data.results.slice(15).map( mapItem => 
+            <Carousel.Item key={mapItem.id}>
+              <img
+                className="slidePicture"
+                src={''.concat(imgurl, mapItem.poster_path)}
+                alt="slide pic"
+              />
+            </Carousel.Item>
+          );
+          setCaroItem(Item);
+        });
     }
-    //const test1 =''.concat(imgurl, planets[0]!==undefined && planets[0].poster_path)
-    //const test2 =''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)
-    useEffect(() => {
+
+    useEffect( () => {
       fetchData();
-    },[]);
+    }, [] );
+
 
     return (
-      <React.Fragment>
       <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item>
-           <img
-             className="d-block w-100"
-             src={''.concat(imgurl, planets[0]!==undefined && planets[0].poster_path)}
-             alt="first slide"
-           />
-         </Carousel.Item>
-         <Carousel.Item>
-           <img
-             className="d-block w-100"
-             src={''.concat(imgurl, planets[1]!==undefined && planets[1].poster_path)}
-             alt="Second slide"
-           />
-         </Carousel.Item>
-         <Carousel.Item>
-           <img
-             className="d-block w-100"
-             src={''.concat(imgurl, planets[2]!==undefined && planets[2].poster_path)}
-             alt="first slide"
-           />
-         </Carousel.Item>
-         <Carousel.Item>
-           <img
-             className="d-block w-100"
-             src={''.concat(imgurl, planets[3]!==undefined && planets[3].poster_path)}
-             alt="first slide"
-           />
-         </Carousel.Item>
-         <Carousel.Item>
-           <img
-             className="d-block w-100"
-             src={''.concat(imgurl, planets[4]!==undefined && planets[4].poster_path)}
-             alt="first slide"
-           />
-         </Carousel.Item>
+        {CaroItem}
       </Carousel>
-      </React.Fragment>
     );
 }
 
-export default Caro
+export default Caro;

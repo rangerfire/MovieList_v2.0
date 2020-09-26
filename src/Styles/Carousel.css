@@ -1,21 +1,36 @@
-
 .carousel {
-    height: auto;
-    width: 50vh;
-    left: 50%;
-    margin-top: 40vh;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    position:relative;
+  width: 30vw;
+  height: 39vw;
+  margin: auto;
+  position:relative;
 }
 
-.d-block w-100{
+.slidePicture {
   background-size: cover;
   background-position: 50% 50%;
-  width: 100%;
-  height: 40vh;
+  width: 30vw;
+  height: 39vw;
+  padding: 1vh 0;
 }
 
-h3{
-  color:yellow;
+@media only screen and ( max-width: 768px ) {
+  .carousel {
+    width: 50vw;
+    height: 70vw;
+  }
+  .slidePicture {
+    width: 50vw;
+    height: 70vw;
+  }
+}
+
+@media only screen and ( max-width: 1200px ) and (min-width: 768px) {
+  .carousel {
+    width: 40vw;
+    height: 60vw;
+  }
+  .slidePicture {
+    width: 40vw;
+    height: 60vw;
+  }
 }
