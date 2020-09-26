@@ -11,7 +11,6 @@ const ShowBlockedMovie = (props) => {
     }
 
     const handleLike = () => {
-        // props.deleteOneBlockedMovie(movieData);
         props.addOneLikedMovie(movieData);   
     }
 

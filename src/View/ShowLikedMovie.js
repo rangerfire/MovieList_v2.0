@@ -11,7 +11,6 @@ const ShowLikedMovie = (props) => {
     }
 
     const handleBlock = () => {
-        // props.deleteOneLikedMovie(movieData);
         props.addOneBlockedMovie(movieData);   
     }
 

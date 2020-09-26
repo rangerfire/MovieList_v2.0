@@ -6,7 +6,7 @@ class Pagination extends React.Component {
     prevPageHandeler = () => {
         const Page = this.props.Page;
         if(Page === 1)
-            alert("this is first page!");
+            alert("This is the first page");
         else 
             this.props.changePage(Page-1);
     }
@@ -14,7 +14,7 @@ class Pagination extends React.Component {
     nextPageHandeler = () => {
         let Page = this.props.Page;
         if(Page === 500)
-            alert("this is the last page!");
+            alert("This is the last page");
         else {
             Page++;
             this.props.changePage(Page);
@@ -29,7 +29,6 @@ class Pagination extends React.Component {
                 });
             }
         }
-            
     }
 
     render() {
@@ -40,7 +39,7 @@ class Pagination extends React.Component {
                 <button onClick={this.nextPageHandeler}>Next</button>
             </div>
         );
-}
+    }
 }
 
 export default Pagination;
