@@ -8,6 +8,7 @@
 
 .main {
   flex-basis: 90vw;
+  width: 90vw;
   display: flex;
   flex-direction: column;
 }
@@ -22,4 +23,58 @@ header {
 h1 {
   font-size: 3.5vw;
   font-family: 'Montez';
+}
+
+/* ---------- move sideNav.css here ---------- */
+
+.side-nav {
+  background: #eee;
+  padding-top: 5vh;
+  flex-basis: 10vw;
+  width: 10vw;
+  font-family: 'Leckerli One';
+}
+
+.link-container {
+  position: fixed;
+  top: 5vh;
+  width: 10vw;
+  /* background-color: red; */
+}
+
+.link {
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding: 1vh 1vw;
+  margin: 0 0.5vw;
+  cursor: pointer;
+}
+
+.link:last-child {
+  border: none;
+}
+
+.link:hover {
+  background-color: gray;
+}
+
+@media only screen and (max-width: 768px) {
+  .main {
+    flex-basis: 80vw;
+    width: 80vw;
+  }
+  .side-nav {
+    flex-basis: 20vw;
+    width: 20vw;
+  }
+  .link-container {
+    width: 19vw;
+    /* background-color: red; */
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width:768px) {
+  .link-container {
+    width: 9.5vw;
+  }
 }
