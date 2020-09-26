@@ -1,5 +1,25 @@
 .App {
   text-align: center;
-  margin-left: 300px;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: bisque;
+}
+
+.main {
+  flex-basis: 90vw;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 0 1vw;
+  font-size: 5vw;
+  font-family: 'Meddon';
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3.5vw;
+  font-family: 'Montez';
 }

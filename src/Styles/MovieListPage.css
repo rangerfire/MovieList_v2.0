@@ -1,0 +1,204 @@
+/* ------------------- sort area ------------------- */
+.sortArea {
+    display: flex;
+    justify-content:center;
+}
+
+.sortArea button {
+    margin:1vw 7vw;
+    padding: 0.2vw 0.7vw;
+    background-color:#87CEEB;
+    /* font-family: Georgia; */
+    font-family: 'Pacifico';
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid black;
+    margin: 1vh 1vw;
+}
+
+/* ------------------- pagination area ------------------- */
+.paginationArea {
+    display:flex;
+    justify-content:center;
+    font-family: Georgia;
+}
+
+.paginationArea p {
+    margin: 0.5vh 28vw;   
+    padding: 0.2vw 0.7vw;
+}
+
+.paginationArea button {
+    padding: 0.2vw 0.7vw;
+    font-family: 'Pacifico';
+}
+
+/* ------------------- Show movies ------------------- */
+.ShowMovies {
+    margin: 3vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Pacifico';
+}
+
+.showSingleMovie {
+    margin: 1.5vw;
+    flex-basis: 18vw;
+    width: 18vw;
+}
+
+.showSingleMovie > img{
+    width: 18vw;
+    height: 31vw;
+    box-shadow: 0.5vw 0.5vh 10px gray;
+}
+
+/* ------------------- operator ------------------- */
+.operator {
+    margin: 1vh 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.operator img {
+    width: 1.5vw;
+    height: 1.5vw;
+} 
+
+/* ------------------- text part ------------------- */
+.movieInfo {
+    width: 100%;
+}
+
+.title {
+    font-size: 2vw;
+    font-weight: bold;
+    margin: 0 0.5vw;
+    /* only display 1 row */
+    white-space: nowrap;
+    overflow: hidden;   
+    text-overflow: ellipsis;
+}
+
+.release_date {
+    font-size: 1.1vw;
+    margin: 0 0.5vw;
+}
+
+.count_ave {
+    font-size: 1.1vw;
+    display: flex;
+    justify-content: center;
+}
+
+.count_ave * {
+    padding: 0 0.2vw;
+    margin: 0;
+}
+
+.vote_average {
+    border-left: 2px solid black;
+}
+
+.overview {
+    font-size: 1.3vw;
+    /* only display 5 rows */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+/* ----------------------------- Mobile Version ----------------------------- */
+@media only screen and (max-width: 768px) {
+    .sortArea button {
+        margin:1vw 3vw;
+    }
+    .paginationArea p {
+        margin: 0.5vh 18vw;   
+    }
+    .showSingleMovie {
+        flex-basis: 50vw;
+        width: 50vw;
+    }    
+    .showSingleMovie > img{
+        width: 50vw;
+        height: 70vw;
+    }
+    .operator {
+        margin-bottom: 0;
+    }
+    .operator img {
+        width: 5vw;
+        height: 5vw;
+    } 
+    .title {
+        font-size: 5vw;
+        /* show whole name */
+        white-space: normal;
+    }    
+    .release_date {
+        font-size: 3vw;
+    }    
+    .count_ave {
+        font-size: 3vw;
+    }    
+    .overview {        
+        font-size: 3.5vw;
+        /* should show everything */
+        display: block;
+    }
+}
+
+/* ----------------------------- Ipad pro Version ----------------------------- */
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+    .sortArea button {
+        margin:1vw 4vw;
+    }
+    .paginationArea p {
+        margin: 0.5vh 20vw;   
+    }
+    .showSingleMovie {
+        flex-basis: 25vw;
+        width: 25vw;
+    }    
+    .showSingleMovie > img{
+        width: 25vw;
+        height: 45vw;
+    }
+    .operator {
+        margin-bottom: 0;
+    }
+    .operator img {
+        width: 3.5vw;
+        height: 3.5vw;
+    } 
+    .title {
+        font-size: 3vw;
+    }    
+    .release_date {
+        font-size: 1.5vw;
+    }    
+    .count_ave {
+        font-size: 1.5vw;
+    }    
+    .overview {        
+        font-size: 2vw;
+        /* only display 5 rows */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+}
+
+
+
