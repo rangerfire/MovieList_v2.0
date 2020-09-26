@@ -30,13 +30,13 @@ const ShowMovies = (props) => {
                 <img src="./img/block_icon.png" alt="block icon" onClick={handleBlock} />
             </div>
             <div className="movieInfo">
-                <p className="title">{title}</p>
+                <p className="title" title={title}>{title}</p>
                 <p className="release_date">Release Date: {release_date}</p>
                 <div className="count_ave">
                     <p className="vote_count">Vote Count: {vote_count}</p>
                     <p className="vote_average">Vore Average: {vote_average}</p>
                 </div>
-                <p className="overview">{overview}</p>
+                <p className="overview" title={overview}>{overview}</p>
             </div>
         </div>
     );
