@@ -13,16 +13,23 @@ const ShowMovies = (props) => {
     const release_date = ''.concat(movieData.release_date);
     const overview = ''.concat(movieData.overview);
 
+    const ifBlocked = () => {
+        const BlockedMovies = props.BlockedMovies;
+        const finder = (finditem) => {
+            return finditem.id === movieData.id;
+        }
+        return BlockedMovies.findIndex(finder) >= 0;
+    }
+
     const handleLike = () => {
         props.addOneLikedMovie(movieData);   
     }
 
     const handleBlock = () => {
-        props.deleteOneListedMovie(movieData);
         props.addOneBlockedMovie(movieData);   
     }
-
-    return (
+    
+    return !ifBlocked(movieData) && (
         <div className="showSingleMovie">
             <img src={imgUrl} alt={movieData.id} />
             <div className="operator">

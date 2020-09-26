@@ -45,7 +45,7 @@ class movieListPage extends React.Component {
         const index = this.props.MovieSet.findIndex(finder);
         const movieList = index >=0 && this.props.MovieSet[index].onePageMovies.map( movie => 
             <ShowMovies 
-                key={movie.id} movieData={movie}
+                key={movie.id} movieData={movie} BlockedMovies={this.props.BlockedMovies}
                 addOneLikedMovie={this.props.addOneLikedMovie}
                 addOneBlockedMovie={this.props.addOneBlockedMovie}                
             />
