@@ -1,7 +1,9 @@
 const LikedMoviesSelector = (state) => state.LikedMovies;
 const BlockedMoviesSelector = (state) => state.BlockedMovies;
-const ListedMoviesSelector = (state) => state.movieList;
-const PageListSelector = (state) => state.pageList;
+// const ListedMoviesSelector = (state) => state.movieList;
+// const PageListSelector = (state) => state.pageList;
+const PageSelector = (state) => state.Page;
+
 /*
     put your selectors here, don't forget to add them into export
 */
@@ -9,6 +11,7 @@ const PageListSelector = (state) => state.pageList;
 export default {
     LikedMoviesSelector,
     BlockedMoviesSelector,
-    ListedMoviesSelector,
-    PageListSelector
+    // ListedMoviesSelector,
+    // PageListSelector
+    PageSelector
 }

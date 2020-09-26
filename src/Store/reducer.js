@@ -4,8 +4,11 @@ import Actions from '../Constants'
 const initialState = {
     LikedMovies: [],
     BlockedMovies: [],
-    movieList: [],
-    pageList: []
+
+    Page: 1,
+    Movies: []
+    // movieList: [],
+    // pageList: []
     /*
         put your states here
     */

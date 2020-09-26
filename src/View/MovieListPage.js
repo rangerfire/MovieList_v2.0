@@ -7,20 +7,18 @@ import { connect } from 'react-redux';
 import Selector from '../Selector';
 import { actions } from '../ActionCreator';
 
-const pageBaseURL = 'https://api.themoviedb.org/3/';
-const action = 'movie/popular?api_key=';
-const ApiKey = '43d2c15376ca311ed501203d6c7cf47f';
-const lang = '&language=en-US';
-const page = '&page=1';
+// const pageBaseURL = 'https://api.themoviedb.org/3/';
+// const action = 'movie/popular?api_key=';
+// const ApiKey = '43d2c15376ca311ed501203d6c7cf47f';
+// const lang = '&language=en-US';
+// const page = '&page=1';
+// const url = ''.concat(pageBaseURL,action,ApiKey,lang,page);;
 const preURL = 'https://api.themoviedb.org/3/movie/popular?api_key=43d2c15376ca311ed501203d6c7cf47f&language=en-US&page=';
-var page_1 = 1;
-
-const url = ''.concat(pageBaseURL,action,ApiKey,lang,page);;
-let url_1 = ''.concat(preURL, page_1.toString(10));
 
 class movieListPage extends React.Component {
 
     componentDidMount = () => {
+        
         axios.get(url)
         .then( res => {
             const response = res.data.results.slice();
@@ -87,8 +85,10 @@ class movieListPage extends React.Component {
 const mapStateToProps = (state) => ({
     LikedMovies: Selector.LikedMoviesSelector(state),
     BlockedMovies: Selector.BlockedMoviesSelector(state),
-    movieList: Selector.ListedMoviesSelector(state),
-    pageList: Selector.PageListSelector(state)
+    // movieList: Selector.ListedMoviesSelector(state),
+    // pageList: Selector.PageListSelector(state)
+    Page: Selector.PageSelector(state)
+    
 });
 
 const mapDispatchToProps = (dispatch) => ({
