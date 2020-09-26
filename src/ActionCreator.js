@@ -40,10 +40,8 @@ const addOnePageMovies = (pageNumber, onePageMovies) => ({
 export const actions = {
     addOneLikedMovie, 
     addOneBlockedMovie,
-    // addOneMovie,
     deleteOneLikedMovie,
     deleteOneBlockedMovie,
-    // deleteOneListedMovie,
     changePage,
     addOnePageMovies
 };

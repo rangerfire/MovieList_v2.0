@@ -26,8 +26,6 @@ class Pagination extends React.Component {
                     // const resPage = res.data.page;
                     const resResults = res.data.results;
                     this.props.addOnePageMovies(Page, resResults);
-                    console.log(Page);               //number
-                    console.log(resResults);            //array
                 });
             }
         }
