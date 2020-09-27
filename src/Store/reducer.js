@@ -1,4 +1,3 @@
-import { actions } from '../ActionCreator';
 import Actions from '../Constants'
 
 const initialState = {
@@ -6,8 +5,15 @@ const initialState = {
     BlockedMovies: [],
 
     Page: 1,
-    MovieSet: []        //[ { pageNumer: , onePageMovies: }, { pageNumer: , onePageMovies: } ]
+    MovieSet: [],        //[ { pageNumber: , onePageMovies: }, { pageNumber: , onePageMovies: } ]
 
+    ShowType: 0,
+
+    SortOrder: Actions.ASC_OEDER,
+    MovieSet_Title: [],         //type 1
+    MovieSet_VoteCount: [],     //type 2
+    MovieSet_AverageScore: [],  //type 3
+    MovieSet_ReleaseDate: []    //type 4
     /*
         put your states here
     */
@@ -17,7 +23,7 @@ const reducer = (state=initialState, action={}) => {
     const newLikedMovies = state.LikedMovies.slice();
     const newBlockedMovies = state.BlockedMovies.slice();
     const newMovieSet = state.MovieSet.slice();
-    let newMovieData, finder;
+    let newMovieData, finder, newSetData;
     if( action.type === Actions.ADD_ONE_LIKED_MOVIE ||
             action.type === Actions.ADD_ONE_BLOCKED_MOVIE ||
             action.type === Actions.DELETE_ONE_LIKED_MOVIE ||
@@ -28,6 +34,14 @@ const reducer = (state=initialState, action={}) => {
             return finditem.id === newMovieData.id;
         };
     }    
+
+    if( action.type === Actions.FILL_MOVIESET_TITLE ||
+        action.type === Actions.FILL_MOVIESET_VOTE_COUNT ||
+        action.type === Actions.FILL_MOVIESET_AVERAGE_SCORE ||
+        action.type === Actions.FILL_MOVIESET_RELEASEDATE ) 
+    {
+        newSetData = action.setData;
+    }
 
     switch (action.type) {
         
@@ -105,6 +119,47 @@ const reducer = (state=initialState, action={}) => {
                 MovieSet: newMovieSet
             };    
 
+        case Actions.CHANGE_ORDER:
+            if(state.SortOrder === Actions.ASC_OEDER)
+                return {
+                    ...state,
+                    SortOrder: Actions.DESC_ORDER
+                };
+            else
+                return {
+                    ...state,
+                    SortOrder: Actions.ASC_OEDER
+                };
+        
+        case Actions.FILL_MOVIESET_TITLE: 
+            return {
+                ...state,
+                MovieSet_Title: newSetData
+            };
+
+        case Actions.FILL_MOVIESET_VOTE_COUNT: 
+            return {
+                ...state,
+                MovieSet_VoteCount: newSetData
+            };
+
+        case Actions.FILL_MOVIESET_AVERAGE_SCORE: 
+            return {
+                ...state,
+                MovieSet_AverageScore: newSetData
+            };
+
+        case Actions.FILL_MOVIESET_RELEASEDATE: 
+            return {
+                ...state,
+                MovieSet_ReleaseDate: newSetData
+            };
+
+        case Actions.CHANGE_SHOW_TYPE:
+            return {
+                ...state,
+                ShowType: action.showType
+            }
         /*
 
           put your actions handler here

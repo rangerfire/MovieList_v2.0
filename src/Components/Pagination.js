@@ -35,7 +35,7 @@ class Pagination extends React.Component {
         return (
             <div className="paginationArea">
                 <button onClick={this.prevPageHandeler}>Prev</button>
-                <p className="pageText">{this.props.Page} / 500</p>
+                <p className="pageText">{this.props.Page} / {Constants.TOTAL_PAGE}</p>
                 <button onClick={this.nextPageHandeler}>Next</button>
             </div>
         );

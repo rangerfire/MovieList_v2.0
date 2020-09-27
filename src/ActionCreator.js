@@ -32,6 +32,36 @@ const addOnePageMovies = (pageNumber, onePageMovies) => ({
     onePageMovies: onePageMovies
 });
 
+const changeOrder = () => ({
+    type: Actions.CHANGE_ORDER
+}); 
+
+const fillMovieSetTitle = (setData) => ({
+    type: Actions.FILL_MOVIESET_TITLE,
+    setData: setData
+});
+
+const fillMovieSetVoteCount = (setData) => ({
+    type: Actions.FILL_MOVIESET_VOTE_COUNT,
+    setData: setData
+});
+
+const fillMovieSetAverageScore = (setData) => ({
+    type: Actions.FILL_MOVIESET_AVERAGE_SCORE,
+    setData: setData
+});
+
+const fillMovieSetReleaseDate = (setData) => ({
+    type: Actions.FILL_MOVIESET_RELEASEDATE,
+    setData: setData
+});
+
+const changeShowType = (showType) => ({
+    type: Actions.CHANGE_SHOW_TYPE,
+    showType: showType
+});
+
+
 /*
     put your action creators here, don't forget to add them into export
 */
@@ -43,5 +73,13 @@ export const actions = {
     deleteOneLikedMovie,
     deleteOneBlockedMovie,
     changePage,
-    addOnePageMovies
+    addOnePageMovies,
+    
+    changeOrder,
+    fillMovieSetTitle,
+    fillMovieSetVoteCount,
+    fillMovieSetAverageScore,
+    fillMovieSetReleaseDate,
+
+    changeShowType
 };

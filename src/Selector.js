@@ -1,9 +1,15 @@
 const LikedMoviesSelector = (state) => state.LikedMovies;
 const BlockedMoviesSelector = (state) => state.BlockedMovies;
-// const ListedMoviesSelector = (state) => state.movieList;
-// const PageListSelector = (state) => state.pageList;
 const PageSelector = (state) => state.Page;
 const MovieSetSelector = (state) => state.MovieSet;
+
+const ShowTypeSelector = (state) => state.ShowType;
+
+const SortOrderSelector = (state) => state.SortOrder;
+const MovieSetTitleSelector = (state) => state.MovieSet_Title;
+const MovieSetVoteCountSelector = (state) => state.MovieSet_VoteCount;
+const MovieSetAverageScoreSelector = (state) => state.MovieSet_AverageScore;
+const MovieSetReleaseDateSelector = (state) => state.MovieSet_ReleaseDate;
 
 /*
     put your selectors here, don't forget to add them into export
@@ -12,8 +18,14 @@ const MovieSetSelector = (state) => state.MovieSet;
 export default {
     LikedMoviesSelector,
     BlockedMoviesSelector,
-    // ListedMoviesSelector,
-    // PageListSelector
     PageSelector,
-    MovieSetSelector
+    MovieSetSelector,
+
+    ShowTypeSelector,
+
+    SortOrderSelector,
+    MovieSetTitleSelector,
+    MovieSetVoteCountSelector,
+    MovieSetAverageScoreSelector,
+    MovieSetReleaseDateSelector
 }
