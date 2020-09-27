@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import axios from 'axios';
 import ShowMovies from './ShowMovies';
 import "../Styles/MovieListPage.css";
@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import Selector from '../Selector';
 import { actions } from '../ActionCreator';
 import Pagination from '../Components/Pagination';
-import { act } from 'react-dom/test-utils';
 import Constants from '../Constants';
 
 const preURL = Constants.PREURL;
@@ -98,20 +97,20 @@ class movieListPage extends React.Component {
                     <button onClick={this.setSort.bind(this, this.state.sort === 'release_date_asc' ? 'release_date_desc' : 'release_date_asc')}>
                         Release Date {sort === 'release_date_asc' ? '⇧' : '⇩'}
                     </button>
+                    </div>
+                    <hr />
+                    <Pagination 
+                        check={this.check} 
+                        Page={this.props.Page}  
+                        MovieSet={this.props.MovieSet}
+                        changePage={this.props.changePage}
+                        addOnePageMovies={this.props.addOnePageMovies}
+                    />
+                    <hr />
+                    <div className="ShowMovies">
+                        {movieList}
+                    </div>
                 </div>
-                <hr />
-                <Pagination 
-                    check={this.check} 
-                    Page={this.props.Page}  
-                    MovieSet={this.props.MovieSet}
-                    changePage={this.props.changePage}
-                    addOnePageMovies={this.props.addOnePageMovies}
-                />
-                <hr />
-                <div className="ShowMovies">
-                    {movieList}
-                </div>
-            </div>
         );       
     }
 }
