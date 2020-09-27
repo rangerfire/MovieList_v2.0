@@ -13,6 +13,9 @@ import Constants from '../Constants';
 const preURL = Constants.PREURL;
 
 class movieListPage extends React.Component {
+    state = {
+        sort: 'vote_average_desc'
+    }
 
     check = (pageNumer) => {
         const MovieSet = this.props.MovieSet;
@@ -24,6 +27,12 @@ class movieListPage extends React.Component {
         return false;
     }
 
+
+    setSort = (sort) => {
+        this.setState({sort})
+    }
+
+    
     componentDidMount = () => {
         //only if this page not exist, send ajax call
         if( !this.check(this.props.Page) ) {
@@ -43,7 +52,31 @@ class movieListPage extends React.Component {
             return findItem.pageNumber === Page;
         }
         const index = this.props.MovieSet.findIndex(finder);
-        const movieList = index >=0 && this.props.MovieSet[index].onePageMovies.map( movie => 
+        const sort = this.state.sort;
+        const list = index >=0 ? this.props.MovieSet[index].onePageMovies : []
+        const sortedList = list
+          .slice(0)
+          .sort((a, b) => {
+            if (sort === 'title_asc') {
+                return a.title > b.title ? 1 : -1;
+            } else if (sort === 'title_desc') {
+                return a.title > b.title ? -1 : 1;
+            } else if (sort === 'vote_count_asc') {
+                return a.vote_count - b.vote_count;
+            } else if (sort === 'vote_count_desc') {
+                return b.vote_count - a.vote_count;
+            } else if (sort === 'vote_average_asc') {
+                return a.vote_average - b.vote_average;
+            } else if (sort === 'vote_average_desc') {
+                return b.vote_average - a.vote_average;
+            } else if (sort === 'release_date_asc') {
+                return new Date(a.release_date) - new Date(b.release_date);
+            } else if (sort === 'release_date_desc') {
+                return new Date(b.release_date) - new Date(a.release_date);
+            }
+        })
+
+        const movieList = sortedList.map( movie => 
             <ShowMovies 
                 key={movie.id} movieData={movie} BlockedMovies={this.props.BlockedMovies}
                 addOneLikedMovie={this.props.addOneLikedMovie}
@@ -53,10 +86,18 @@ class movieListPage extends React.Component {
         return (
             <div className="movieListPage">
                 <div className="sortArea">
-                    <button>Title</button>
-                    <button>Vote Count</button>
-                    <button>Average Score</button>
-                    <button>Release Date</button>
+                    <button onClick={this.setSort.bind(this, this.state.sort === 'title_asc' ? 'title_desc' : 'title_asc')}>
+                        Title {sort === 'title_asc' ? '⇧' : '⇩'}
+                    </button>
+                    <button onClick={this.setSort.bind(this, this.state.sort === 'vote_count_asc' ? 'vote_count_desc' : 'vote_count_asc')}>
+                        Vote Count {sort === 'vote_count_asc' ? '⇧' : '⇩'}
+                    </button>
+                    <button onClick={this.setSort.bind(this, this.state.sort === 'vote_average_asc' ? 'vote_average_desc' : 'vote_average_asc')}>
+                        Average Score {sort === 'vote_average_asc' ? '⇧' : '⇩'}
+                    </button>
+                    <button onClick={this.setSort.bind(this, this.state.sort === 'release_date_asc' ? 'release_date_desc' : 'release_date_asc')}>
+                        Release Date {sort === 'release_date_asc' ? '⇧' : '⇩'}
+                    </button>
                 </div>
                 <hr />
                 <Pagination 
