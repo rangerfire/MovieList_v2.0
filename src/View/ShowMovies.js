@@ -31,7 +31,7 @@ const ShowMovies = (props) => {
     
     return !ifBlocked(movieData) && (
         <div className="showSingleMovie">
-            <img src={imgUrl} alt={movieData.id} />
+            <img src={imgUrl} alt={movieData.title} />
             <div className="operator">
                 <img src="./img/like_icon.png" alt="like icon" onClick={handleLike} />
                 <img src="./img/block_icon.png" alt="block icon" onClick={handleBlock} />
