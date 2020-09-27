@@ -14,7 +14,7 @@
 }
 
 header {
-  padding: 0 1vw;
+  padding: 1vh 1vw;
   font-size: 5vw;
   font-family: 'Meddon';
   font-weight: bold;
@@ -33,6 +33,7 @@ h1 {
   flex-basis: 10vw;
   width: 10vw;
   font-family: 'Leckerli One';
+  /* font-family: 'Pacifico'; */
 }
 
 .link-container {

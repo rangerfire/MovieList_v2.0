@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import ShowLikedMovie from './ShowLikedMovie';
+import ShowLikedMovie from '../Components/ShowLikedMovie';
 //redux
 import { connect } from 'react-redux';
 import Selector from '../Selector';

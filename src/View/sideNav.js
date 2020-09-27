@@ -1,5 +1,4 @@
 import React from "react";
-// import "../Styles/sideNav.css";
 
 export default function navBar({ onPageChange }) {
   return (

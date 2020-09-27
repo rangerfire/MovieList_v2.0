@@ -1,7 +1,5 @@
 const LikedMoviesSelector = (state) => state.LikedMovies;
 const BlockedMoviesSelector = (state) => state.BlockedMovies;
-// const ListedMoviesSelector = (state) => state.movieList;
-// const PageListSelector = (state) => state.pageList;
 const PageSelector = (state) => state.Page;
 const MovieSetSelector = (state) => state.MovieSet;
 
@@ -12,8 +10,6 @@ const MovieSetSelector = (state) => state.MovieSet;
 export default {
     LikedMoviesSelector,
     BlockedMoviesSelector,
-    // ListedMoviesSelector,
-    // PageListSelector
     PageSelector,
     MovieSetSelector
 }

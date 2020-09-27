@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
-import axios from 'axios';
-import ShowMovies from './ShowMovies';
-import "../Styles/MovieListPage.css";
-
 import { connect } from 'react-redux';
+import axios from 'axios';
+//from other files
+import "../Styles/MovieListPage.css";
+import Pagination from '../Components/Pagination';
+import ShowMovies from '../Components/ShowMovies';
+//redux
 import Selector from '../Selector';
 import { actions } from '../ActionCreator';
-import Pagination from '../Components/Pagination';
 import Constants from '../Constants';
 
 const preURL = Constants.PREURL;
@@ -26,12 +27,10 @@ class movieListPage extends React.Component {
         return false;
     }
 
-
     setSort = (sort) => {
         this.setState({sort})
     }
 
-    
     componentDidMount = () => {
         //only if this page not exist, send ajax call
         if( !this.check(this.props.Page) ) {
@@ -83,20 +82,22 @@ class movieListPage extends React.Component {
             />
         );
         return (
-            <div className="movieListPage">
-                <div className="sortArea">
-                    <button onClick={this.setSort.bind(this, this.state.sort === 'title_asc' ? 'title_desc' : 'title_asc')}>
-                        Title {sort === 'title_asc' ? '⇧' : '⇩'}
-                    </button>
-                    <button onClick={this.setSort.bind(this, this.state.sort === 'vote_count_asc' ? 'vote_count_desc' : 'vote_count_asc')}>
-                        Vote Count {sort === 'vote_count_asc' ? '⇧' : '⇩'}
-                    </button>
-                    <button onClick={this.setSort.bind(this, this.state.sort === 'vote_average_asc' ? 'vote_average_desc' : 'vote_average_asc')}>
-                        Average Score {sort === 'vote_average_asc' ? '⇧' : '⇩'}
-                    </button>
-                    <button onClick={this.setSort.bind(this, this.state.sort === 'release_date_asc' ? 'release_date_desc' : 'release_date_asc')}>
-                        Release Date {sort === 'release_date_asc' ? '⇧' : '⇩'}
-                    </button>
+            <Fragment>
+                <header>Our Top Rated Movie List</header>
+                <div className="movieListPage">
+                    <div className="sortArea">
+                        <button onClick={this.setSort.bind(this, this.state.sort === 'title_asc' ? 'title_desc' : 'title_asc')}>
+                            Sort By Title {sort === 'title_asc' ? '⇧' : '⇩'}
+                        </button>
+                        <button onClick={this.setSort.bind(this, this.state.sort === 'vote_count_asc' ? 'vote_count_desc' : 'vote_count_asc')}>
+                            Sort By Vote Count {sort === 'vote_count_asc' ? '⇧' : '⇩'}
+                        </button>
+                        <button onClick={this.setSort.bind(this, this.state.sort === 'vote_average_asc' ? 'vote_average_desc' : 'vote_average_asc')}>
+                            Sort By Average Score {sort === 'vote_average_asc' ? '⇧' : '⇩'}
+                        </button>
+                        <button onClick={this.setSort.bind(this, this.state.sort === 'release_date_asc' ? 'release_date_desc' : 'release_date_asc')}>
+                            Sort By Release Date {sort === 'release_date_asc' ? '⇧' : '⇩'}
+                        </button>
                     </div>
                     <hr />
                     <Pagination 
@@ -111,6 +112,7 @@ class movieListPage extends React.Component {
                         {movieList}
                     </div>
                 </div>
+            </Fragment>
         );       
     }
 }
@@ -120,7 +122,6 @@ const mapStateToProps = (state) => ({
     BlockedMovies: Selector.BlockedMoviesSelector(state),
     Page: Selector.PageSelector(state),
     MovieSet: Selector.MovieSetSelector(state)
-    
 });
 
 const mapDispatchToProps = (dispatch) => ({
