@@ -35,7 +35,8 @@ class movieListPage extends React.Component {
                 this.props.addOnePageMovies(resPage, resResults);
             });
         }
-        // this.props.changeShowType(0);
+        this.props.changeShowType(0);
+        this.props.changePage(1);
     } 
 
     render() {
@@ -164,7 +165,7 @@ class movieListPage extends React.Component {
             <div className="movieListPage">
                 <SortArea 
                     SortOrder={this.props.SortOrder} ShowType={this.props.ShowType} MovieSet_ReleaseDate={this.props.MovieSet_ReleaseDate}
-                    changeOrder={this.props.changeOrder} changeShowType={this.props.changeShowType}
+                    changeOrder={this.props.changeOrder} changeShowType={this.props.changeShowType} changePage={this.props.changePage}
                     fillMovieSetTitle={this.props.fillMovieSetTitle}
                     fillMovieSetVoteCount={this.props.fillMovieSetVoteCount}
                     fillMovieSetAverageScore={this.props.fillMovieSetAverageScore}

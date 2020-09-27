@@ -139,33 +139,28 @@ const SortArea = (props) => {
         }
     }, []);
 
-    //didumount
-    useEffect(() => {
-        return () => {
-            props.changeShowType(0);
-        };
-    }, []);
-
-
     const handleSortT = () => {
         props.changeOrder();
         props.changeShowType(1);
-        // console.log(props.ShowType);
+        props.changePage(1);
     }
 
     const handleSortV = () => {
         props.changeOrder();
         props.changeShowType(2);
+        props.changePage(1);
     }
 
     const handleSortA = () => {
         props.changeOrder();
         props.changeShowType(3);
+        props.changePage(1);
     }
 
     const handleSortR = () => {
         props.changeOrder();
         props.changeShowType(4);
+        props.changePage(1);
     }
 
     return (
