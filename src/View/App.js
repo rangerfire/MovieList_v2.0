@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <SideNav onPageChange={handleClick} />
       <div className={"main"}>
-        <header>Our Top Rated Movie List</header>
+        {/* <header>Our Top Rated Movie List</header> */}
         {currentPage}
       </div>
     </div>

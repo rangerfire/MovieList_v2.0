@@ -17,7 +17,7 @@ class LikedListPage extends React.Component {
 
         return (
             <Fragment>
-                <h1>Movie List of Liked</h1>
+                <header>Movie List of Liked</header>
                 <div className="ShowLikedMovie">
                     {likedMovies}
                 </div>
