@@ -8,7 +8,6 @@
     margin:1vw 7vw;
     padding: 0.2vw 0.7vw;
     background-color:#87CEEB;
-    /* font-family: Georgia; */
     font-family: 'Pacifico';
 }
 
@@ -42,7 +41,9 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    font-family: 'Pacifico';
+    /* font-family: 'Pacifico'; */
+    font-family: 'Rouge Script';
+    font-weight: bold;
 }
 
 .showSingleMovie {
@@ -109,7 +110,7 @@ hr {
 }
 
 .vote_average {
-    border-left: 2px solid black;
+    border-left: 1px solid black;
 }
 
 .overview {
@@ -162,6 +163,15 @@ hr {
         /* should show everything */
         display: block;
     }
+    .sortArea {
+        font-size: 3vw;
+    }
+    .paginationArea {
+        font-size: 3vw;
+    }
+    .count_ave * {
+        padding: 0 0.5vw;
+    }
 }
 
 /* ----------------------------- Ipad pro Version ----------------------------- */
@@ -204,6 +214,9 @@ hr {
         display: -webkit-box;
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
+    }
+    .count_ave * {
+        padding: 0 0.5vw;
     }
 }
 

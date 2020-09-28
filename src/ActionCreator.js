@@ -36,7 +36,6 @@ const addOnePageMovies = (pageNumber, onePageMovies) => ({
     put your action creators here, don't forget to add them into export
 */
 
-
 export const actions = {
     addOneLikedMovie, 
     addOneBlockedMovie,

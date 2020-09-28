@@ -1,6 +1,6 @@
 import React from "react";
-import Caro from "./Carousel"
-import "../Styles/homePage.css"
+import Caro from "../Components/Carousel"
+
 export default function homePage({ onPageChange }) {
   return (
     <React.Fragment>

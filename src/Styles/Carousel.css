@@ -17,6 +17,7 @@
   .carousel {
     width: 50vw;
     height: 80vw;
+    margin-top: 10vh;
   }
   .slidePicture {
     width: 50vw;
@@ -28,6 +29,7 @@
   .carousel {
     width: 40vw;
     height: 65vw;
+    margin-top: auto;
   }
   .slidePicture {
     width: 40vw;

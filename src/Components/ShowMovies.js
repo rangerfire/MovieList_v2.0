@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import "../Styles/MovieListPage.css";
 
 const imgBaseUrl = 'https://image.tmdb.org/t/p/';
@@ -29,19 +29,30 @@ const ShowMovies = (props) => {
         props.addOneBlockedMovie(movieData);   
     }
     
+    //add loading
+    const [loading, setLoading] = useState(true);
+    const counter = useRef(0);
+    const imgLoaded = () => {
+        counter.current ++;
+        if(counter.current >= 1)
+            setLoading(false);
+    }
+
+
     return !ifBlocked(movieData) && (
         <div className="showSingleMovie">
-            <img src={imgUrl} alt={movieData.id} />
+            <img src='./img/loading.gif' alt="loading img" style={{display : loading?"inline":"none"}}/>
+            <img src={imgUrl} alt={movieData.id} onLoad={imgLoaded} style={{display : loading?"none":"inline"}}/>
             <div className="operator">
                 <img src="./img/like_icon.png" alt="like icon" onClick={handleLike} />
                 <img src="./img/block_icon.png" alt="block icon" onClick={handleBlock} />
             </div>
             <div className="movieInfo">
                 <p className="title" title={title}>{title}</p>
-                <p className="release_date">Release Date: {release_date}</p>
+                <p className="release_date" title={release_date} >Release Date: {release_date}</p>
                 <div className="count_ave">
-                    <p className="vote_count">Vote Count: {vote_count}</p>
-                    <p className="vote_average">Vore Average: {vote_average}</p>
+                    <p className="vote_count" title={vote_count} >Vote Count: {vote_count}</p>
+                    <p className="vote_average" title={vote_average} >Vore Average: {vote_average}</p>
                 </div>
                 <p className="overview" title={overview}>{overview}</p>
             </div>

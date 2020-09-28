@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
-import ShowBlockedMovie from './ShowBlockedMovie';
+import ShowBlockedMovie from '../Components/ShowBlockedMovie';
 //redux
 import { connect } from 'react-redux';
 import Selector from '../Selector';
 import { actions } from '../ActionCreator';
 
 class LikedListPage extends React.Component {
-
     render() {
         const BlockedMovies = this.props.BlockedMovies.map( movie => 
             <ShowBlockedMovie 

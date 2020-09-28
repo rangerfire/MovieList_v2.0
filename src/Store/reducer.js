@@ -1,16 +1,10 @@
-import { actions } from '../ActionCreator';
 import Actions from '../Constants'
 
 const initialState = {
     LikedMovies: [],
     BlockedMovies: [],
-
     Page: 1,
     MovieSet: []        //[ { pageNumer: , onePageMovies: }, { pageNumer: , onePageMovies: } ]
-
-    /*
-        put your states here
-    */
 };
 
 const reducer = (state=initialState, action={}) => {
@@ -104,12 +98,6 @@ const reducer = (state=initialState, action={}) => {
                 ...state,
                 MovieSet: newMovieSet
             };    
-
-        /*
-
-          put your actions handler here
-
-        */    
         
         default: 
             return {...state};
